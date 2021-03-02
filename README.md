@@ -54,10 +54,31 @@ SonarQube loads by default 167 rules. With this custom plugin, we have 169 rules
 
 ## Scala
 
+[Sonar-Scala](https://sonar-scala.com) includes more than 200 rules. For install:
 
+First, disable the default Scala plugin, then copy the new jar library and restart:
+```
+$ podman cp sonarqube_sonarqube_1:/opt/sonarqube/lib/extensions/sonar-scala-plugin-1.8.2.1946.jar .
+$ podman exec sonarqube_sonarqube_1 rm -f /opt/sonarqube/lib/extensions/sonar-scala-plugin-1.8.2.1946.jar
+$ podman cp sonar-scala_2.13-8.6.0-assembly.jar sonarqube_sonarqube_1:/opt/sonarqube/extensions/plugins/
+$ podman-compose restart sonarqube
+
+# we can check the plugin load
+$ podman-compose logs -f sonarqube
+```
 
 ### Refs
 
 - https://docs.sonarqube.org/latest/analysis/languages/scala/
-- https://sonar-scala.com/docs/setup/getting-started/
 - https://github.com/mwz/sonar-scala/releases
+
+
+## JSON
+
+
+
+### Refs
+
+- https://github.com/racodond/sonar-json-plugin
+- https://github.com/racodond/sonar-json-custom-rules-plugin
+
