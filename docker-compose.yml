@@ -16,6 +16,7 @@ services:
       - SONAR_JDBC_PASSWORD=sonar
     volumes:
       - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_lib:/opt/sonarqube/lib
       - sonarqube_data:/opt/sonarqube/data
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
@@ -31,6 +32,7 @@ services:
       
 volumes:
   sonarqube_conf:
+  sonarqube_lib:
   sonarqube_data:
   sonarqube_extensions:
   sonarqube_bundled-plugins:
